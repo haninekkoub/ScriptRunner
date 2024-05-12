@@ -12,15 +12,15 @@ const neueMontreal = localFront({
       weight: "300",
     },
     {
-      path: "../Fonts/NeueMontreal-Regular.otf",
+      path: "../fonts/NeueMontreal-Regular.otf",
       weight: "400",
     },
     {
-      path: "../Fonts/NeueMontreal-Medium.otf",
+      path: "../fonts/NeueMontreal-Medium.otf",
       weight: "500",
     },
     {
-      path: "../Fonts/NeueMontreal-Bold.otf",
+      path: "../fonts/NeueMontreal-Bold.otf",
       weight: "700",
     },
   ],
