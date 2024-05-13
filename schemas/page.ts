@@ -17,7 +17,7 @@ export default {
       name: "content",
       type: "array",
       title: "Page Content",
-      of: [{ type: "block.test" }],
+      of: [{ type: "heroComponent" }, { type: "footer" }],
     },
   ],
 };

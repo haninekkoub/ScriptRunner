@@ -1,5 +1,5 @@
-import Test from "./test";
+import Hero from "./hero";
 
 export const Components = {
-  "block.test": Test,
+  heroComponent: Hero,
 };

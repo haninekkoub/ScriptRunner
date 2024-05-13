@@ -26,6 +26,7 @@ const neueMontreal = localFront({
   ],
   variable: "--neueMontreal",
 });
+
 export const metadata: Metadata = {
   title: "Script Runner",
   description: "Improving acces to healthcare",
@@ -39,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${neueMontreal.variable}  ${inter.variable} relative  min-h-screen mx-auto`}
+        className={`${neueMontreal.variable}  ${inter.variable} overscroll font-inter`}
       >
         {children}
       </body>

@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/vision": "^3.41.1",
     "next": "14.2.3",
     "next-sanity": "^9.0.15",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hls-player": "^3.0.7",
+    "sanity-plugin-mux-input": "^2.3.4"
   },
   "devDependencies": {
     "typescript": "^5",

@@ -9,11 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        thunder: ["var(--neueMontreal)"],
+        neueMontreal: ["var(--neueMontreal)"],
         inter: ["var(--inter)"],
       },
       colors: {
         primary: "#FF6200",
+        primaryHovred: "#FF8133",
+      },
+      letterSpacing: {
+        base: "-.015rem",
+      },
+      keyframes: {
+        fadeDown: {
+          "0%": { transform: "translateY(-200%) translateX(-50%)" },
+          "100%": { transform: "translateY(0%) translateX(-50%)" },
+        },
       },
     },
   },
