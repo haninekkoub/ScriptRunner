@@ -4,8 +4,8 @@ import { useRef } from "react";
 import HlsPlayer from "react-hls-player";
 
 export default function Video({ playbackId }: { playbackId: string }) {
-  if (!playbackId) return null;
   const videoRef = useRef(null);
+  if (!playbackId) return null;
 
   const videoUrl = `https://stream.mux.com/${playbackId}.m3u8`;
   return (
