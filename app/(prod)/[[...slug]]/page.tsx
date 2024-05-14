@@ -26,6 +26,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     { slug: pathname },
     { cache: "no-store" }
   );
+
   if (!page) {
     return notFound();
   }
