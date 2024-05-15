@@ -14,9 +14,13 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         "video": video.asset-> {
             playbackId,
             assetId,
-          },
-          
+          },         
         },
+        _type == "faqList" => {
+          "faq": content[]->{
+            ...,
+          }
+        }
       },
 
       
@@ -38,7 +42,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       </div>
     );
   }
-  console.log(page.content);
   return (
     <div>
       {page.content.map(({ _type, ...object }: any) => {

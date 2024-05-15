@@ -8,19 +8,19 @@ const inter = Inter({ subsets: ["latin"], variable: "--inter" });
 const neueMontreal = localFront({
   src: [
     {
-      path: "../fonts/NeueMontreal-Light.otf",
-      weight: "300",
+      path: "../fonts/PPNeueMontreal-Thin.otf",
+      weight: "100",
     },
     {
-      path: "../fonts/NeueMontreal-Regular.otf",
-      weight: "400",
+      path: "../fonts/PPNeueMontreal-Book.otf",
+      weight: "350",
     },
     {
-      path: "../fonts/NeueMontreal-Medium.otf",
+      path: "../fonts/PPNeueMontreal-Medium.otf",
       weight: "500",
     },
     {
-      path: "../fonts/NeueMontreal-Bold.otf",
+      path: "../fonts/PPNeueMontreal-Bold.otf",
       weight: "700",
     },
   ],

@@ -1,17 +1,17 @@
 import { defineField } from "sanity";
 
 export default defineField({
-  name: "footer",
+  name: "footerComponent",
   type: "object",
-  title: "Footer Component",
+  title: "footer Component",
   preview: {
     select: {
-      title: "Footer Component",
+      title: "footer",
     },
     prepare({ title }) {
       return {
         title,
-        subtitle: "footer component",
+        subtitle: "footer Component",
       };
     },
   },

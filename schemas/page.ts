@@ -17,7 +17,11 @@ export default {
       name: "content",
       type: "array",
       title: "Page Content",
-      of: [{ type: "heroComponent" }, { type: "footer" }],
+      of: [
+        { type: "heroComponent" },
+        { type: "ctaComponent" },
+        { type: "faqList" },
+      ],
     },
   ],
 };
