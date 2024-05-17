@@ -73,7 +73,7 @@ export default function HowItWork({ card }: CardList) {
                 <h2 className=" font-neueMontreal text-5xl font-medium">
                   Unparalleled flexiblity <br />
                   that will fit any <br />
-                  pharmacy's needs
+                  pharmacy&apos;s needs
                 </h2>
                 <p className=" text-2xl opacity-60 w-2/3">
                   We give you the flexibility to deploy various last-mile
