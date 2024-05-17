@@ -20,6 +20,11 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           "faq": content[]->{
             ...,
           }
+        },
+        _type == "cardList" => {
+          "card": content[]->{
+            ...,
+          }
         }
       },
 

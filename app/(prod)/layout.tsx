@@ -9,9 +9,7 @@ export default function Layout({
   return (
     <div className="relative bg-white flex flex-col justify-between  min-h-screen mx-auto font-inter ">
       <Header />
-      <main className="relative z-10 bg-white  overflow-hidden">
-        {children}
-      </main>
+      <main className="relative z-10 bg-white">{children}</main>
       <Footer />
     </div>
   );

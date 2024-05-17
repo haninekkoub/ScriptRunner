@@ -29,6 +29,9 @@ const config = {
       letterSpacing: {
         base: "-.015rem",
       },
+      dropShadow: {
+        cta: "0 0 50px rgba(255,98,0,.5)",
+      },
       keyframes: {
         fadeDown: {
           "0%": { transform: "translateY(-200%) translateX(-50%)" },

@@ -12,7 +12,7 @@ export default function Header() {
 
 const Logo = () => {
   return (
-    <Link href={"/"}>
+    <Link href={"/"} className="w-[40px] lg:w-full">
       <svg
         width="183"
         height="20"

@@ -21,6 +21,7 @@ export default {
         { type: "heroComponent" },
         { type: "ctaComponent" },
         { type: "faqList" },
+        { type: "cardList" },
       ],
     },
   ],

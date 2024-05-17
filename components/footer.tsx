@@ -1,10 +1,21 @@
+"use client";
+
+import { useInView } from "framer-motion";
 import Cta from "./ui/cta";
 import Links from "./ui/links";
+import { useRef } from "react";
 
 export default function Footer() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+  const textfade = {
+    opacity: isInView ? 1 : 0,
+    transitionDelay: "3s",
+    transition: "all 2.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+  };
   const cta = true;
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" ref={ref}>
       {cta && <Cta />}
       <div className="min-h-[400px] lg:min-h-[340px] w-full text-white fixed bottom-0">
         <div className="bg-primary  relative min-h-[400px] lg:min-h-[340px] pt-20">
@@ -18,7 +29,10 @@ export default function Footer() {
               <Links link={"/"} text={"Book a demo"} />
             </div>
           </div>
-          <div className=" font-neueMontreal font-bold text-[calc(23200vw/1440)]  whitespace-nowrap  leading-10 lg:leading-[150px] absolute bottom-0">
+          <div
+            className=" font-neueMontreal font-bold text-[calc(23200vw/1440)] whitespace-nowrap leading-[50%] absolute bottom-0 -left-2 lg:-left-8"
+            style={textfade}
+          >
             Script Runner
           </div>
         </div>

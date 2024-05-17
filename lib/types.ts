@@ -26,13 +26,33 @@ interface FaqList {
   faq: FaqType[];
 }
 
+interface CardType {
+  id: number;
+  image: "image";
+  title: string;
+  info: string;
+}
+
+interface CardList {
+  card: CardType[];
+}
+
 interface Page {
   name: string;
   slug: {
     _type: "slug";
     current: string;
   };
-  content: Array<CallToActionType | FaqList | HeroType>;
+  content: Array<CallToActionType | FaqList | HeroType | CardList>;
 }
 
-export type { ButtonType, HeroType, CallToActionType, FaqType, FaqList, Page };
+export type {
+  ButtonType,
+  HeroType,
+  CallToActionType,
+  FaqType,
+  FaqList,
+  CardType,
+  CardList,
+  Page,
+};

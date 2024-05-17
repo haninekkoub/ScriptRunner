@@ -5,6 +5,8 @@ import footerComponent from "./component/footer";
 import ctaComponent from "./component/callToAction";
 import faqList from "./component/faqList";
 import faq from "./faq";
+import cards from "./cards";
+import cardList from "./component/cardList";
 
 export const schemaTypes = [
   heroComponent,
@@ -12,6 +14,8 @@ export const schemaTypes = [
   footerComponent,
   faq,
   faqList,
+  cards,
+  cardList,
   layout,
   page,
 ];
