@@ -1,9 +1,12 @@
 import { defineField } from "sanity";
 
 export default defineField({
-  name: "footerComponent",
-  type: "object",
+  name: "footer",
+  type: "document",
   title: "footer Component",
+  options: {
+    singleton: true,
+  },
   preview: {
     select: {
       title: "footer",

@@ -34,7 +34,7 @@ interface CardType {
 }
 
 interface CardList {
-  card: CardType[];
+  content: CardType[];
 }
 
 interface Page {

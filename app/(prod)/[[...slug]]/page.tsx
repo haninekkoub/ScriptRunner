@@ -21,14 +21,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
             ...,
           }
         },
-        _type == "cardList" => {
-          "card": content[]->{
-            ...,
-          }
-        }
-      },
-
-      
+      },   
   }`;
   const page = await client.fetch(
     query,
@@ -47,6 +40,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       </div>
     );
   }
+  console.log(page.content);
   return (
     <div>
       {page.content.map(({ _type, ...object }: any) => {

@@ -2,7 +2,7 @@ import { defineField } from "sanity";
 
 export default defineField({
   name: "card",
-  type: "document",
+  type: "object",
   title: "Card",
   preview: {
     select: {

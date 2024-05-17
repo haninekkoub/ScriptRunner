@@ -5,7 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Card from "./ui/card";
 import { CardList, CardType } from "@/lib/types";
 
-export default function HowItWork({ card }: CardList) {
+export default function HowItWork({ content }: CardList) {
   const [scrollRange, setScrollRange] = useState<number>(0);
   const [screenWidth, setScreenWidth] = useState<number>(0);
   const targetRef = useRef<HTMLDivElement | null>(null);
@@ -20,7 +20,6 @@ export default function HowItWork({ card }: CardList) {
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-
   useEffect(() => {
     const handleResize = () => {
       const viewportWidth = window.innerWidth;
@@ -82,7 +81,7 @@ export default function HowItWork({ card }: CardList) {
               </div>
             </div>
             <div className="flex gap-6 ">
-              {card?.map((card: CardType, id: number) => {
+              {content?.map((card: CardType, id: number) => {
                 return (
                   <Card
                     key={id}

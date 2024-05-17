@@ -4,6 +4,7 @@ import { visionTool } from "@sanity/vision";
 import { muxInput } from "sanity-plugin-mux-input";
 import { singletonTools } from "sanity-plugin-singleton-tools";
 import { schemaTypes } from "./schemas";
+import { structure } from "./schemas/structure";
 
 export default defineConfig({
   name: "default",
@@ -13,6 +14,11 @@ export default defineConfig({
   dataset: "production",
 
   basePath: "/studio",
-  plugins: [structureTool(), visionTool(), muxInput(), singletonTools()],
+  plugins: [
+    structureTool({ structure }),
+    visionTool(),
+    muxInput(),
+    singletonTools(),
+  ],
   schema: { types: schemaTypes },
 });

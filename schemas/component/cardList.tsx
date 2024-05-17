@@ -19,9 +19,24 @@ export default defineField({
       type: "array",
       of: [
         {
-          name: "faq",
-          type: "reference",
-          to: [{ type: "card" }],
+          type: "object",
+          fields: [
+            {
+              name: "image",
+              type: "image",
+              title: "Card Image",
+            },
+            {
+              name: "title",
+              type: "string",
+              title: "Card Title",
+            },
+            {
+              name: "info",
+              type: "string",
+              title: "Card Info",
+            },
+          ],
         },
       ],
     },
