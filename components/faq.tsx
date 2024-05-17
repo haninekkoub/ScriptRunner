@@ -40,9 +40,9 @@ export default function Faq({ faq }: FaqList) {
               ref={ref}
               initial={{ opacity: 0, y: 100 }}
               animate={fadeUp}
+              key={id}
             >
               <AccordionItem
-                key={id}
                 value={faq.question}
                 className="bg-[#F5F5F5] rounded-[20px] mb-2"
               >
