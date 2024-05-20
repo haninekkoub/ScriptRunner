@@ -44,7 +44,7 @@ const FaqItem = ({ question, info }: FaqType) => {
     },
   };
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 100 }} animate={fadeUp}>
+    <motion.div ref={ref} animate={fadeUp}>
       <AccordionItem
         value={question}
         className="bg-[#F5F5F5] rounded-[20px] mb-2"

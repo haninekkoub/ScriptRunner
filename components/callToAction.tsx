@@ -3,15 +3,17 @@ import { CallToActionType } from "@/lib/types";
 import Button from "./ui/button";
 import Images from "./ui/images";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function CallToAction({
   image,
   title,
   description,
 }: CallToActionType) {
-  const { scrollYProgress } = useScroll();
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref });
   const rotateX = useSpring(
-    useTransform(scrollYProgress, [0.1, 0.15], [25, 0]),
+    useTransform(scrollYProgress, [0.5, 0.9], [0, 25]),
     {
       stiffness: 100,
       damping: 30,
@@ -19,11 +21,15 @@ export default function CallToAction({
     }
   );
   return (
-    <section className="py-16 max-w-[960px] mx-2 lg:mx-auto ">
-      <div style={{ perspective: "1000px" }} className=" drop-shadow-cta">
+    <motion.section className="py-16 max-w-[960px] mx-2 lg:mx-auto">
+      <motion.div
+        style={{ perspective: "1000px" }}
+        className=" drop-shadow-cta"
+      >
         <motion.div
           className="relative lg:w-[960px] h-80 lg:h-[620px]"
           style={{ rotateX: rotateX }}
+          ref={ref}
         >
           <Images
             image={image}
@@ -31,7 +37,7 @@ export default function CallToAction({
             className="w-full h-full object-contain"
           />
         </motion.div>
-      </div>
+      </motion.div>
       <div className="w-4/5 lg:w-3/4 flex flex-col justify-center items-center gap-4 font-neueMontreal font-meduim text-center mx-auto mt-16">
         <h2 className="text-2xl lg:text-[2rem] leading-[1.1] ">{title}.</h2>
         <p className=" lg:w-3/4 opacity-60 text-lg lg:text-xl font-inter ">
@@ -44,6 +50,6 @@ export default function CallToAction({
           className="hover:bg-primaryHovred"
         />
       </div>
-    </section>
+    </motion.section>
   );
 }

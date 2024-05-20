@@ -7,6 +7,8 @@ import faq from "./faq";
 import cards from "./component/cards";
 import cardList from "./component/cardList";
 import header from "./header";
+import statsComponent from "./component/stats";
+import benefits from "./component/benefits";
 
 export const schemaTypes = [
   heroComponent,
@@ -17,5 +19,7 @@ export const schemaTypes = [
   cards,
   cardList,
   header,
+  statsComponent,
+  benefits,
   page,
 ];

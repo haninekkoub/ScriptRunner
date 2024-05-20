@@ -1,6 +1,7 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { client } from "@/lib/sanity";
+import Benefits from "@/components/benefits";
 
 export default async function Layout({
   children,
@@ -12,7 +13,6 @@ export default async function Layout({
     "header": *[_type == "header"][0]
   }`;
   const data = await client.fetch(query, {}, { cache: "no-store" });
-  console.log(data);
   return (
     <div className="relative bg-white flex flex-col justify-between  min-h-screen mx-auto font-inter ">
       <Header />

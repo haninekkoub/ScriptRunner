@@ -31,7 +31,10 @@ const config = {
       },
       dropShadow: {
         cta: "0 0 50px rgba(255,98,0,.5)",
+        pils: "inset 0px 5.01px 8.02px 3.01px rgba(0, 0, 0, 0.2)",
+        card: "0px 0px 4px rgba(0,0,0,0.2)",
       },
+
       keyframes: {
         fadeDown: {
           "0%": { transform: "translateY(-200%) translateX(-50%)" },

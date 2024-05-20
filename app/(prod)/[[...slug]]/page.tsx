@@ -34,13 +34,12 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   }
   if (!page.content || page.content.length === 0 || page === null) {
     return (
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black">
         <h1>this page is blank</h1>
         <Link href="/">go home</Link>
       </div>
     );
   }
-  console.log(page.content);
   return (
     <div>
       {page.content.map(({ _type, ...object }: any) => {

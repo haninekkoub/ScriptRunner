@@ -13,5 +13,30 @@
   .overscroll {
       overscroll-behavior-y: none;        
   }
-
+  .test {
+    contain: paint;
+  }
+  .orange{
+    background: rgb(251,112,27);
+background: -moz-linear-gradient(0deg, rgba(251,112,27,1) 0%, rgba(255,163,107,1) 50%, rgba(230,87,0,1) 100%);
+background: -webkit-linear-gradient(0deg, rgba(251,112,27,1) 0%, rgba(255,163,107,1) 50%, rgba(230,87,0,1) 100%);
+background: linear-gradient(0deg, rgba(251,112,27,1) 0%, rgba(255,163,107,1) 50%, rgba(230,87,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fb701b",endColorstr="#e65700",GradientType=1);}
+  .white{
+    background: rgb(178,178,178);
+    background: -moz-linear-gradient(0deg, rgba(178,178,178,1) 0%, rgba(236,236,236,1) 50%, rgba(206,206,206,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(178,178,178,1) 0%, rgba(236,236,236,1) 50%, rgba(206,206,206,1) 100%);
+    background: linear-gradient(0deg, rgba(178,178,178,1) 0%, rgba(236,236,236,1) 50%, rgba(206,206,206,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b2b2b2",endColorstr="#cecece",GradientType=1);  }
+    .drop {
+      box-shadow: inset 0px 5.01px 8.02px 3.01px rgba(0, 0, 0, 0.2);
+    }
+    .pilsshadow {
+      --tw-shadow: 0px 4px 10px rgba(0,0,0,.1);
+    --tw-shadow-colored: 0px 4px 10px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+    .hani {
+      background:radial-gradient(ellipse at center, hsla(0, 0%, 100%, .8), hsla(0, 0%, 100%, .4), hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, 0));
+          }
 }

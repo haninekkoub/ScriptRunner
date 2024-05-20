@@ -12,7 +12,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noImplicitAny": false,
     "plugins": [
       {
         "name": "next"
@@ -22,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "schemas/structure.js", "schemas/structure.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "schemas/structure.js", "schemas/structure.js", "components/stats.tsw"],
   "exclude": ["node_modules"]
 }

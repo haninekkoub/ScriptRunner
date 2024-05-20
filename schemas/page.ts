@@ -22,6 +22,8 @@ export default {
         { type: "ctaComponent" },
         { type: "faqList" },
         { type: "cardList" },
+        { type: "statsComponent" },
+        { type: "benefits" },
       ],
     },
   ],

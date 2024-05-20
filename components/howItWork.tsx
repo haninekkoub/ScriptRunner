@@ -41,16 +41,6 @@ export default function HowItWork({ content }: CardList) {
     [0, 1],
     [0, screenWidth - scrollRange - 20]
   );
-  //     {
-  //       damping: 40,
-  //       mass: 0.1,
-  //       stiffness: 300,
-  //     }
-  //   {
-  //     stiffness: 100,
-  //     damping: 30,
-  //     restDelta: 0.001,
-  //   }
 
   return (
     <div

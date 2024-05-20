@@ -1,3 +1,5 @@
+import { MotionValue } from "framer-motion";
+
 interface ButtonType {
   href: string;
   content: string;
@@ -37,13 +39,28 @@ interface CardList {
   content: CardType[];
 }
 
+interface Pill {
+  orangePils: string;
+  whitePils: string;
+  x: MotionValue;
+  z: MotionValue;
+}
+interface Highlight {
+  highlight: string;
+}
+interface StatsComponent {
+  pils: Pill[];
+  highlights: Highlight[];
+}
 interface Page {
   name: string;
   slug: {
     _type: "slug";
     current: string;
   };
-  content: Array<CallToActionType | FaqList | HeroType | CardList>;
+  content: Array<
+    CallToActionType | FaqList | HeroType | StatsComponent | CardList
+  >;
 }
 
 export type {
@@ -54,5 +71,8 @@ export type {
   FaqList,
   CardType,
   CardList,
+  Pill,
+  Highlight,
+  StatsComponent,
   Page,
 };
