@@ -28,7 +28,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     { slug: pathname },
     { cache: "no-store" }
   );
-
   if (!page) {
     return notFound();
   }
@@ -40,6 +39,8 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       </div>
     );
   }
+  console.log(page.content);
+
   return (
     <div>
       {page.content.map(({ _type, ...object }: any) => {

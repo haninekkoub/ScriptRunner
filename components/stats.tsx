@@ -41,7 +41,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
 
   const pilSpringAnimations = [
     {
-      x: useSpring(
+      left: useSpring(
         useTransform(
           scrollYProgress,
           [0.2, 0.3, 0.46, 0.49],
@@ -58,7 +58,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
           restDelta: 0.001,
         }
       ),
-      z: useSpring(
+      rotateZ: useSpring(
         useTransform(scrollYProgress, [0.2, 0.3, 0.46, 0.49], [-24, 0, 0, -24]),
         {
           stiffness: 400,
@@ -68,7 +68,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
       ),
     },
     {
-      x: useSpring(
+      left: useSpring(
         useTransform(
           scrollYProgress,
           [0.2, 0.3, 0.46, 0.49],
@@ -85,7 +85,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
           restDelta: 0.001,
         }
       ),
-      z: useSpring(
+      rotateZ: useSpring(
         useTransform(scrollYProgress, [0.2, 0.3, 0.46, 0.49], [25, 0, 0, 25]),
         {
           stiffness: 400,
@@ -95,19 +95,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
       ),
     },
     {
-      x: useSpring(
-        useTransform(
-          scrollYProgress,
-          [0.2, 0.49],
-          [screenWidth * 0.5, screenWidth * 0.5]
-        ),
-        {
-          stiffness: 400,
-          damping: 75,
-          restDelta: 0.001,
-        }
-      ),
-      z: useSpring(
+      rotateZ: useSpring(
         useTransform(scrollYProgress, [0.2, 0.3, 0.46, 0.49], [15, 0, 0, 15]),
         {
           stiffness: 400,
@@ -146,8 +134,8 @@ export default function Stats({ pils, highlights }: StatsComponent) {
                 key={index}
                 orangePils={pils.orangePils}
                 whitePils={pils.whitePils}
-                x={pilSpringAnimations[index].x}
-                z={pilSpringAnimations[index].z}
+                left={pilSpringAnimations[index].left}
+                rotateZ={pilSpringAnimations[index].rotateZ}
               />
             ))}
           </div>

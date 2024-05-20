@@ -42,8 +42,8 @@ interface CardList {
 interface Pill {
   orangePils: string;
   whitePils: string;
-  x: MotionValue;
-  z: MotionValue;
+  left?: MotionValue;
+  rotateZ: MotionValue;
 }
 interface Highlight {
   highlight: string;
@@ -52,6 +52,17 @@ interface StatsComponent {
   pils: Pill[];
   highlights: Highlight[];
 }
+interface BenefitsCards {
+  icon: "image";
+  title: "string";
+  description: "string";
+  scale?: MotionValue;
+  image: "image";
+}
+interface Benifits {
+  benefitscards: BenefitsCards[];
+}
+
 interface Page {
   name: string;
   slug: {
@@ -59,7 +70,7 @@ interface Page {
     current: string;
   };
   content: Array<
-    CallToActionType | FaqList | HeroType | StatsComponent | CardList
+    CallToActionType | FaqList | HeroType | StatsComponent | CardList | Benifits
   >;
 }
 
@@ -73,6 +84,8 @@ export type {
   CardList,
   Pill,
   Highlight,
+  BenefitsCards,
+  Benifits,
   StatsComponent,
   Page,
 };

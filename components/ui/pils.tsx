@@ -36,16 +36,16 @@ import { Pill } from "@/lib/types";
 import { motion } from "framer-motion";
 import { LeftPilsSvg, RightPilsSvg } from "./pilsSvg";
 
-export default function Pils({ orangePils, whitePils, x, z }: Pill) {
+export default function Pils({ orangePils, whitePils, left, rotateZ }: Pill) {
   return (
     <div className="relative w-full h-16 lg:h-[100px]">
       <motion.div
         className="absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2 "
-        style={{ left: x }}
+        style={{ left }}
       >
         <motion.div
           className="flex justify-center items-center w-fit "
-          style={{ rotateZ: z }}
+          style={{ rotateZ }}
         >
           <div className="relative w-32 h-16 lg:h-[100px] lg:w-48 font-neueMontreal ">
             <LeftPilsSvg />

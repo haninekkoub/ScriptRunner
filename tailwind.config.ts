@@ -25,6 +25,7 @@ const config = {
       colors: {
         primary: "#FF6200",
         primaryHovred: "#FF8133",
+        card: "#f5f5f5",
       },
       letterSpacing: {
         base: "-.015rem",
@@ -32,7 +33,7 @@ const config = {
       dropShadow: {
         cta: "0 0 50px rgba(255,98,0,.5)",
         pils: "inset 0px 5.01px 8.02px 3.01px rgba(0, 0, 0, 0.2)",
-        card: "0px 0px 4px rgba(0,0,0,0.2)",
+        card: "0 0 10px  rgba(0,0,0,0.1)",
       },
 
       keyframes: {

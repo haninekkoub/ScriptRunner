@@ -6,21 +6,49 @@ export default defineField({
   title: "Benefits Component",
   preview: {
     select: {
-      title: "benefits",
+      title: "Benefits",
     },
     prepare({ title }) {
       return {
         title,
-        subtitle: "benefits Component",
+        subtitle: "Benefits Component",
       };
     },
   },
 
   fields: [
     {
-      name: "title",
-      type: "text",
-      title: "Cta Title",
+      name: "benefitscards",
+      title: "Benefits Card",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "icon",
+              type: "image",
+              title: "Icon",
+            },
+            {
+              name: "title",
+              type: "string",
+              title: "Card Title",
+            },
+            {
+              name: "description",
+              type: "string",
+              title: "Card Description",
+            },
+            {
+              name: "image",
+              type: "image",
+              title: "image",
+            },
+          ],
+        },
+      ],
+      validation: (Rule) => Rule.max(3),
     },
   ],
 });
