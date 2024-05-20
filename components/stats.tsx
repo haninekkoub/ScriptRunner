@@ -132,9 +132,9 @@ export default function Stats({ pils, highlights }: StatsComponent) {
           <p className="uppercase">Stats</p>
           <h2 className=" text-6xl font-neueMontreal">Why now?</h2>
           <p className="text-center max-w-[640px]">
-            As the scope of pharmacy expands, Script Runner's mission is to free
-            up the time of pharmacists to allow them to focus on patient care
-            and not on delivery and logistics
+            As the scope of pharmacy expands, Script Runner&apos;s mission is to
+            free up the time of pharmacists to allow them to focus on patient
+            care and not on delivery and logistics
           </p>
         </motion.div>
       </motion.div>
