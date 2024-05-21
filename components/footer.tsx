@@ -22,11 +22,12 @@ export default function Footer() {
           <div className="flex flex-col gap-12 lg:gap-0 lg:flex-row justify-between items-start lg:items-center mx-8  ">
             <div className="flex flex-col lg:flex-row gap-6 text-sm font-medium">
               <div>© 2024 Script Runner. All rights reserved.</div>
-              <div>Privacy Policy</div>
+              <Links link={"/"} text={"Privacy Policy"} svg={false} />
+              <span className="h-[1px] w-0 bg-white absolute top-[100%] left-0 group-hover:w-full transition-width duration-300 rounded-3xl"></span>
             </div>
             <div className="flex flex-col lg:flex-row gap-6 ">
-              <Links link={"/"} text={"sales@scriptrunner.ai"} />
-              <Links link={"/"} text={"Book a demo"} />
+              <Links link={"/"} text={"sales@scriptrunner.ai"} svg={true} />
+              <Links link={"/"} text={"Book a demo"} svg={true} />
             </div>
           </div>
           <div

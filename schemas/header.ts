@@ -21,6 +21,11 @@ export default defineField({
 
   fields: [
     {
+      name: "button",
+      type: "string",
+      title: "Button Text",
+    },
+    {
       name: "link",
       type: "string",
       title: "Link",

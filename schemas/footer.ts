@@ -21,15 +21,40 @@ export default defineField({
 
   fields: [
     {
-      name: "ctaText",
+      name: "ctaTitle",
       type: "string",
       title: "Cta Title",
     },
-
     {
-      title: "Cta section",
+      name: "button",
+      type: "string",
+      title: "Button Text",
+    },
+    {
       name: "cta",
       type: "boolean",
+      title: "Cta section",
+    },
+    {
+      name: "privacyLink",
+      type: "string",
+      title: "Privacy Policy Link",
+    },
+    {
+      name: "email",
+      type: "string",
+      title: "Email",
+    },
+
+    {
+      name: "ctaText",
+      type: "string",
+      title: "Cta Text",
+    },
+    {
+      name: "ctaLink",
+      type: "string",
+      title: "Cta Link",
     },
   ],
 });

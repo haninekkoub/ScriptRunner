@@ -13,7 +13,7 @@
   .overscroll {
       overscroll-behavior-y: none;        
   }
-  .test {
+  .overflow {
     contain: paint;
   }
   .orange{

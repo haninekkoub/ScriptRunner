@@ -1,5 +1,9 @@
 import { MotionValue } from "framer-motion";
 
+interface HeaderType {
+  button: string;
+  link: string;
+}
 interface ButtonType {
   href: string;
   content: string;
@@ -75,6 +79,7 @@ interface Page {
 }
 
 export type {
+  HeaderType,
   ButtonType,
   HeroType,
   CallToActionType,

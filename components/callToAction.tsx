@@ -21,7 +21,10 @@ export default function CallToAction({
     }
   );
   return (
-    <motion.section className="py-16 max-w-[960px] mx-2 lg:mx-auto">
+    <motion.section
+      id="switchheadercolor"
+      className="py-16 max-w-[960px] mx-2 lg:mx-auto"
+    >
       <motion.div
         style={{ perspective: "1000px" }}
         className=" drop-shadow-cta"

@@ -1,5 +1,6 @@
 "use client";
 import {
+  delay,
   motion,
   useInView,
   useScroll,
@@ -26,14 +27,14 @@ export default function Stats({ pils, highlights }: StatsComponent) {
 
   const backgroundColor = useTransform(
     scrollYProgress,
-    [0.76, 0.78],
+    [0.65, 0.75],
     ["#FF6200", "#FFFFFF"]
   );
 
   const titleFade = useSpring(
-    useTransform(scrollYProgress, [0.17, 0.2], [0, -300]),
+    useTransform(scrollYProgress, [0.2, 0.25], [0, -400]),
     {
-      stiffness: 100,
+      stiffness: 300,
       damping: 40,
       restDelta: 0.001,
     }
@@ -44,7 +45,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
       left: useSpring(
         useTransform(
           scrollYProgress,
-          [0.2, 0.3, 0.46, 0.49],
+          [0.17, 0.45, 0.54, 0.81],
           [
             screenWidth * 0.1,
             screenWidth * 0.5,
@@ -53,16 +54,20 @@ export default function Stats({ pils, highlights }: StatsComponent) {
           ]
         ),
         {
-          stiffness: 400,
-          damping: 75,
+          stiffness: 900,
+          damping: 50,
           restDelta: 0.001,
         }
       ),
       rotateZ: useSpring(
-        useTransform(scrollYProgress, [0.2, 0.3, 0.46, 0.49], [-24, 0, 0, -24]),
+        useTransform(
+          scrollYProgress,
+          [0.17, 0.45, 0.54, 0.81],
+          [-24, 0, 0, -24]
+        ),
         {
-          stiffness: 400,
-          damping: 75,
+          stiffness: 900,
+          damping: 50,
           restDelta: 0.001,
         }
       ),
@@ -71,7 +76,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
       left: useSpring(
         useTransform(
           scrollYProgress,
-          [0.2, 0.3, 0.46, 0.49],
+          [0.17, 0.45, 0.54, 0.81],
           [
             screenWidth * 0.9,
             screenWidth * 0.5,
@@ -80,26 +85,26 @@ export default function Stats({ pils, highlights }: StatsComponent) {
           ]
         ),
         {
-          stiffness: 400,
-          damping: 75,
+          stiffness: 900,
+          damping: 50,
           restDelta: 0.001,
         }
       ),
       rotateZ: useSpring(
-        useTransform(scrollYProgress, [0.2, 0.3, 0.46, 0.49], [25, 0, 0, 25]),
+        useTransform(scrollYProgress, [0.17, 0.45, 0.54, 0.81], [25, 0, 0, 25]),
         {
-          stiffness: 400,
-          damping: 75,
+          stiffness: 900,
+          damping: 50,
           restDelta: 0.001,
         }
       ),
     },
     {
       rotateZ: useSpring(
-        useTransform(scrollYProgress, [0.2, 0.3, 0.46, 0.49], [15, 0, 0, 15]),
+        useTransform(scrollYProgress, [0.17, 0.45, 0.54, 0.81], [15, 0, 0, 15]),
         {
-          stiffness: 400,
-          damping: 75,
+          stiffness: 900,
+          damping: 120,
           restDelta: 0.001,
         }
       ),
@@ -108,25 +113,26 @@ export default function Stats({ pils, highlights }: StatsComponent) {
 
   return (
     <motion.div
-      className="w-full relative lg:px-0 min-h-screen py-[160px] test"
+      id="switchheadercolor2"
+      className="w-full relative lg:px-0 min-h-screen py-[160px] overflow bg-white"
       style={{ backgroundColor }}
       ref={ref}
     >
       <motion.div
-        className="h-[350px] lg:h-[50vh] relative "
+        className="h-[350px] lg:h-[68vh] relative "
         style={{ y: titleFade }}
       >
         <motion.div className="sticky top-1/3 lg:top-[160px] flex flex-col gap-4 items-center lg:gap-6 text-white  ">
           <p className="uppercase">Stats</p>
           <h2 className=" text-6xl font-neueMontreal">Why now?</h2>
-          <p className="text-center max-w-[640px]">
+          <p className="text-center text-base lg:text-2xl max-w-[680px]">
             As the scope of pharmacy expands, Script Runner&apos;s mission is to
             free up the time of pharmacists to allow them to focus on patient
             care and not on delivery and logistics
           </p>
         </motion.div>
       </motion.div>
-      <div className="h-[500px] relativel">
+      <div className="h-[600px] relativel">
         <div className="sticky top-[40%] lg:top-1/3 w-full ">
           <div className=" w-full flex flex-col gap-6 lg:gap-8 ">
             {pils.map((pils: Pill, index: number) => (
@@ -141,7 +147,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
           </div>
         </div>
       </div>
-      <div className=" pt-[200px] lg:pt-[40vh] mx-auto flex flex-col justify-center items-center gap-8 ">
+      <div className="py-[200px] lg:py-[40vh] mx-auto flex flex-col justify-center items-center gap-8 lg:gap-12 ">
         {highlights.map((highlight: Highlight, index: number) => {
           return <Highlights key={index} highlight={highlight.highlight} />;
         })}
@@ -155,12 +161,12 @@ const Highlights = ({ highlight }: Highlight) => {
   const isInView = useInView(ref, { once: false });
   const fadeUp = {
     opacity: isInView ? 1 : 0,
-    y: isInView ? 0 : 200,
+    y: isInView ? 0 : 300,
     transition: {
-      duration: 300,
+      duration: 400,
       type: "spring",
       stiffness: 200,
-      damping: 17,
+      damping: 30,
     },
   };
   return (

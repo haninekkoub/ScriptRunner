@@ -39,7 +39,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       </div>
     );
   }
-  console.log(page.content);
 
   return (
     <div>

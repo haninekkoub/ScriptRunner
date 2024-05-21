@@ -62,7 +62,6 @@ export default function Benefits({ benefitscards }: Benifits) {
 }
 
 const Card = ({ title, description, image, icon, scale }: BenefitsCards) => {
-  console.log("card", description);
   return (
     <motion.div
       className="h-[800px] lg:h-[600px] w-full bg-card mx-auto sticky top-[50px] lg:top-[160px] rounded-3xl drop-shadow-card flex flex-col lg:flex-row items-center "
@@ -77,11 +76,10 @@ const Card = ({ title, description, image, icon, scale }: BenefitsCards) => {
           <p className="opacity-60 text-2xl leading-8">{description}</p>
         </div>
       </div>
-      <div className="h-full w-full flex-1 relative ">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-300 h-full rounded-[1.25rem] overflow-clip mx-16">
-          <Images image={image} alt={"image"} />
-        </div>
+      <div className="h-full w-full flex-1 relative bg-blue-300 rounded-[1.25rem] px-16 ">
+        <Images image={image} alt={"image"} className="h-full w-full" />
       </div>
     </motion.div>
   );
 };
+// absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
