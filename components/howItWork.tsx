@@ -71,7 +71,7 @@ export default function HowItWork({ content }: CardList) {
             style={{ x }}
             className="h-full w-fit flex items-center relative"
           >
-            <div className=" flex items-start lg:gap-10 h-[46vh] lg:h-fit lg:px-12 lg:py-16">
+            <div className=" flex items-center lg:items-start lg:gap-10 h-[46vh] lg:h-fit lg:px-12 lg:py-16">
               <div className="h-[672px] flex items-center">
                 <div className="gap-12  hidden lg:flex">
                   <div className="bg-cyan-500 rounded-2xl min-w-[min(46vw,670px)]"></div>
