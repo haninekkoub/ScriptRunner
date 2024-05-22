@@ -9,7 +9,7 @@ export default function Video({ playbackId }: { playbackId: string }) {
       playsInline
       muted
       poster={posterUrl}
-      className="h-full w-full absolute inset-0 object-cover z-50"
+      className="h-full w-full absolute inset-0 object-cover -z-20"
     >
       <source src={url} type="video/mp4" />
     </video>
