@@ -42,8 +42,8 @@ export default function CallToAction({
         </motion.div>
       </motion.div>
       <div className="w-4/5 lg:w-3/4 flex flex-col justify-center items-center gap-4 font-neueMontreal font-meduim text-center mx-auto mt-16">
-        <h2 className="text-2xl lg:text-[2rem] leading-[1.1] ">{title}.</h2>
-        <p className=" lg:w-3/4 opacity-60 text-lg lg:text-xl font-inter ">
+        <h2 className="text-2xl lg:text-[2rem] leading-[1.1] ">{title}</h2>
+        <p className=" lg:w-4/5 opacity-60 text-lg lg:text-xl font-inter ">
           {description}
         </p>
         <Button

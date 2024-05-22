@@ -1,20 +1,21 @@
 "use client";
 import {
-  delay,
   motion,
   useInView,
   useScroll,
   useSpring,
   useTransform,
 } from "framer-motion";
+
 import { useEffect, useRef, useState } from "react";
 import Pils from "./ui/pils";
-import { Highlight, Pill, StatsComponent } from "@/lib/types";
+import { Highlight, StatsComponent } from "@/lib/types";
 
 export default function Stats({ pils, highlights }: StatsComponent) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref });
   const [screenWidth, setScreenWidth] = useState<number>(0);
+
   useEffect(() => {
     const handleResize = () => {
       const viewportWidth = window.innerWidth;
@@ -42,6 +43,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
 
   const pilSpringAnimations = [
     {
+      bgColors: "linear-gradient(180deg, #fb701b, #ffa36b 56.5%, #e65700)",
       left: useSpring(
         useTransform(
           scrollYProgress,
@@ -73,6 +75,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
       ),
     },
     {
+      bgColors: "linear-gradient(180deg, #fb9e1b, #ffc16b 56.5%, #e68600)",
       left: useSpring(
         useTransform(
           scrollYProgress,
@@ -100,6 +103,7 @@ export default function Stats({ pils, highlights }: StatsComponent) {
       ),
     },
     {
+      bgColors: "linear-gradient(180deg, #fb411b, #ff836b 56.5%, #e62600)",
       rotateZ: useSpring(
         useTransform(scrollYProgress, [0.17, 0.45, 0.54, 0.81], [15, 0, 0, 15]),
         {
@@ -135,10 +139,11 @@ export default function Stats({ pils, highlights }: StatsComponent) {
       <div className="h-[600px] relativel">
         <div className="sticky top-[40%] lg:top-1/3 w-full ">
           <div className=" w-full flex flex-col gap-6 lg:gap-8 ">
-            {pils.map((pils: Pill, index: number) => (
+            {pils.map((pils, index) => (
               <Pils
                 key={index}
-                orangePils={pils.orangePils}
+                bgColors={pilSpringAnimations[index].bgColors}
+                leftPils={pils.leftPils}
                 whitePils={pils.whitePils}
                 left={pilSpringAnimations[index].left}
                 rotateZ={pilSpringAnimations[index].rotateZ}
@@ -147,11 +152,13 @@ export default function Stats({ pils, highlights }: StatsComponent) {
           </div>
         </div>
       </div>
-      <div className="py-[200px] lg:py-[40vh] mx-auto flex flex-col justify-center items-center gap-8 lg:gap-12 ">
-        {highlights.map((highlight: Highlight, index: number) => {
-          return <Highlights key={index} highlight={highlight.highlight} />;
-        })}
-      </div>
+      {highlights?.length > 0 && (
+        <div className="py-[200px] lg:py-[40vh] mx-auto flex flex-col justify-center items-center gap-8 lg:gap-10 ">
+          {highlights.map((highlight, index) => {
+            return <Highlights key={index} highlight={highlight.highlight} />;
+          })}
+        </div>
+      )}
     </motion.div>
   );
 }

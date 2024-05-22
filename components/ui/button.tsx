@@ -1,7 +1,11 @@
-import { ButtonType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-
+interface ButtonType {
+  href: string;
+  content: string;
+  color: string;
+  className?: string;
+}
 export default function Button({
   href,
   color,

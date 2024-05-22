@@ -22,11 +22,13 @@ export default function Faq({ faq }: FaqList) {
           <br /> here is a sneak peak
         </p>
       </div>
-      <Accordion type="single" collapsible className="flex-1 ">
-        {faq?.map((faq: FaqType, id: number) => {
-          return <FaqItem key={id} question={faq.question} info={faq.info} />;
-        })}
-      </Accordion>
+      {faq?.length > 0 && (
+        <Accordion type="single" collapsible className="flex-1 ">
+          {faq.map((faq: FaqType, id: number) => {
+            return <FaqItem key={id} question={faq.question} info={faq.info} />;
+          })}
+        </Accordion>
+      )}
     </section>
   );
 }

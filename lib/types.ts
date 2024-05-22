@@ -1,15 +1,29 @@
 import { MotionValue } from "framer-motion";
 
+interface CtaType {
+  cta: boolean;
+  ctaTitle: string;
+  ctabutton: Button;
+}
+
+interface Button {
+  _key: string;
+  content: string;
+  link: string;
+}
+
+interface FooterType {
+  ctaComponent: CtaType;
+  footerText: string;
+  links: Button[];
+  leftLinks: Button[];
+}
+
 interface HeaderType {
   button: string;
   link: string;
 }
-interface ButtonType {
-  href: string;
-  content: string;
-  color: string;
-  className?: string;
-}
+
 interface HeroType {
   heroText: string;
   video: {
@@ -42,12 +56,9 @@ interface CardType {
 interface CardList {
   content: CardType[];
 }
-
 interface Pill {
-  orangePils: string;
+  leftPils: string;
   whitePils: string;
-  left?: MotionValue;
-  rotateZ: MotionValue;
 }
 interface Highlight {
   highlight: string;
@@ -80,13 +91,15 @@ interface Page {
 
 export type {
   HeaderType,
-  ButtonType,
+  CtaType,
+  FooterType,
   HeroType,
   CallToActionType,
   FaqType,
   FaqList,
   CardType,
   CardList,
+  Button,
   Pill,
   Highlight,
   BenefitsCards,

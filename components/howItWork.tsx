@@ -3,7 +3,7 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Card from "./ui/card";
-import { CardList, CardType } from "@/lib/types";
+import { CardList } from "@/lib/types";
 
 export default function HowItWork({ content }: CardList) {
   const [scrollRange, setScrollRange] = useState<number>(0);
@@ -75,9 +75,9 @@ export default function HowItWork({ content }: CardList) {
               <div className="h-[672px] flex items-center">
                 <div className="gap-12  hidden lg:flex">
                   <div className="bg-cyan-500 rounded-2xl min-w-[min(46vw,670px)]"></div>
-                  <div className=" flex-col gap-6 py-8 w-[min(46vw,670px)]">
+                  <div className="flex flex-col gap-6 py-8 w-[min(46vw,670px)]">
                     <p className="uppercase text-primary">OFFERINGS</p>
-                    <h2 className=" font-neueMontreal text-5xl font-medium">
+                    <h2 className=" font-neueMontreal text-[3.125rem] font-medium leading-[1.1]">
                       Unparalleled flexiblity <br />
                       that will fit any <br />
                       pharmacy&apos;s needs
@@ -89,19 +89,21 @@ export default function HowItWork({ content }: CardList) {
                   </div>
                 </div>
               </div>
-              <div className="flex gap-6">
-                {content?.map((card: CardType, id: number) => {
-                  return (
-                    <Card
-                      key={id}
-                      id={id + 1}
-                      image={card.image}
-                      title={card.title}
-                      info={card.info}
-                    />
-                  );
-                })}
-              </div>
+              {content?.length > 0 && (
+                <div className="flex gap-6">
+                  {content.map((card, id) => {
+                    return (
+                      <Card
+                        key={id}
+                        id={id + 1}
+                        image={card.image}
+                        title={card.title}
+                        info={card.info}
+                      />
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </motion.div>
         </div>

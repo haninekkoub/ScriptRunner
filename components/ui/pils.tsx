@@ -1,61 +1,42 @@
-// import { Pill } from "@/lib/types";
-// import { motion } from "framer-motion";
-// import { LeftPilsSvg, RightPilsSvg } from "./pilsSvg";
+import { motion, MotionValue } from "framer-motion";
 
-// export default function Pils({ orangePils, whitePils, x, z }: Pill) {
-//   return (
-//     <div className="relative w-full h-16 lg:h-[88px]">
-//       <motion.div
-//         className="absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2 h-full"
-//         style={{ left: x }}
-//       >
-//         <motion.div
-//           className="relative h-13 h-full w-80 flex bg-cyan-300 rounded-full overflow-hidden pilsshadow "
-//           style={{ rotateZ: z }}
-//         >
-//           <div className="absolute left-3 top-3 h-4 w-6 -rotate-45 bg-white z-20 blur-md"></div>
-
-//           <div className="orange h-full flex-1 flex items-center justify-center rounded-l-full">
-//             <p className="text-[1.625rem] lg:text-[2.75rem] font-neueMontreal whitespace-nowrap">
-//               {orangePils}
-//             </p>
-//           </div>
-//           <div className="white relative  flex-1 flex items-center justify-center px-2 rounded-r-full drop">
-//             <div className="absolute z-0 h-4 w-full bg-white top-2 lg:top-4 blur-lg "></div>
-//             <p className="text-[0.525rem] lg:text-base font-medium z-10">
-//               {whitePils}
-//             </p>
-//           </div>
-//         </motion.div>
-//       </motion.div>
-//     </div>
-//   );
-// }
-
-import { Pill } from "@/lib/types";
-import { motion } from "framer-motion";
-import { LeftPilsSvg, RightPilsSvg } from "./pilsSvg";
-
-export default function Pils({ orangePils, whitePils, left, rotateZ }: Pill) {
+interface props {
+  bgColors: string;
+  left?: MotionValue;
+  rotateZ: MotionValue;
+  leftPils: string;
+  whitePils: string;
+}
+export default function Pils({
+  bgColors,
+  leftPils,
+  whitePils,
+  left,
+  rotateZ,
+}: props) {
   return (
-    <div className="relative w-full h-16 lg:h-[100px]">
+    <div className="relative w-full h-14  lg:h-[88px]">
       <motion.div
-        className="absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2 "
-        style={{ left }}
+        className="absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2 h-full  "
+        style={{ left: left }}
       >
         <motion.div
-          className="flex justify-center items-center w-fit "
-          style={{ rotateZ }}
+          className="relative h-full w-48 lg:w-80 flex rounded-full bgshine box-shadow-pils shadow-lg"
+          style={{ rotateZ: rotateZ }}
         >
-          <div className="relative w-32 h-16 lg:h-[100px] lg:w-48 font-neueMontreal ">
-            <LeftPilsSvg />
-            <div className="text-[1.625rem] lg:text-[2.75rem] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">
-              {orangePils}
-            </div>
+          <div className="absolute left-3 top-3 h-4 w-6 -rotate-45 bgshine z-20"></div>
+          <div
+            className="orange relative h-full flex-1 flex items-center justify-center rounded-l-full"
+            style={{ background: bgColors }}
+          >
+            <p className="text-[1.625rem] lg:text-[2.75rem] font-neueMontreal whitespace-nowrap">
+              {leftPils}
+            </p>
           </div>
-          <div className="relative w-32 h-16 lg:h-[100px] lg:w-48 -ml-4">
-            <RightPilsSvg />
-            <p className=" text-[0.525rem] lg:text-base font-medium absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5/6 lg:w-4/5">
+          <div className="relative flex-1 flex items-center justify-center px-2 rounded-r-full capsulegray">
+            <div className="absolute z-0 h-4 w-full bgshine bottom-2 lg:bottom-8"></div>
+
+            <p className="text-[0.525rem] lg:text-base font-medium z-10">
               {whitePils}
             </p>
           </div>

@@ -32,7 +32,7 @@ const config = {
       },
       dropShadow: {
         cta: "0 0 50px rgba(255,98,0,.5)",
-        pils: "inset 0px 5.01px 8.02px 3.01px rgba(0, 0, 0, 0.2)",
+        pils: "0 4 10px rgba(0,0,0,.1);",
         card: "0 0 10px  rgba(0,0,0,0.1)",
       },
 

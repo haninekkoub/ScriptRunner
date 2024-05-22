@@ -12,13 +12,11 @@ export default async function Layout({
     "header": *[_type == "header"][0]
   }`;
   const data = await client.fetch(query, {}, { cache: "no-store" });
-  const headerData = data.header;
-  const footerData = data.footer;
   return (
     <div className="relative bg-white flex flex-col justify-between  min-h-screen mx-auto font-inter ">
-      <Header button={headerData.button} link={headerData.link} />
-      <main className="relative z-10 bg-white">{children}</main>
-      <Footer />
+      <Header {...data.header} />
+      <main className="relative z-10 bg-white ">{children}</main>
+      <Footer {...data.footer} />
     </div>
   );
 }

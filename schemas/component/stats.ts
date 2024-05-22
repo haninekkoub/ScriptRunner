@@ -22,7 +22,7 @@ export default defineField({
           type: "object",
           fields: [
             {
-              name: "orangePils",
+              name: "leftPils",
               type: "string",
               title: "Left Part",
             },

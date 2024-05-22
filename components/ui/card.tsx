@@ -9,9 +9,9 @@ export default function Card({ id, image, title, info }: CardType) {
         <span className="bg-white w-12 h-12 flex justify-center items-center rounded-full">
           {id}
         </span>
-        <div className="relative w-full aspect-[1512/1113] object-contain ">
+        <div className="relative w-full aspect-[1512/1164]  ">
           <Images
-            className="h-full w-full rounded-[20px]"
+            className="h-full w-full rounded-[20px] object-contain"
             image={image}
             alt={"card"}
           />
