@@ -6,6 +6,7 @@ import Images from "./ui/images";
 import { BenefitsCards, Benifits } from "@/lib/types";
 
 export default function Benefits({ benefitscards }: Benifits) {
+  console.log(benefitscards);
   const reference = useRef(null);
   const { scrollYProgress } = useScroll({ target: reference });
   const cardsAnimation = [
@@ -39,46 +40,108 @@ export default function Benefits({ benefitscards }: Benifits) {
         </h2>
       </div>
       <motion.div className="relative w-full flex flex-col gap-16 [&>*:nth-child(2)]:top-[100px] [&>*:nth-child(2)]:lg:top-[200px]">
-        {benefitscards?.map(
-          (
-            { title, description, image, icon }: BenefitsCards,
-            index: number
-          ) => {
-            return (
-              <Card
-                key={index}
-                scale={cardsAnimation[index].scale}
-                icon={icon}
-                title={title}
-                description={description}
-                image={image}
-              />
-            );
-          }
-        )}
+        {benefitscards?.map(({ ...benefitscards }, index: number) => {
+          return (
+            <Card
+              key={index}
+              scale={cardsAnimation[index].scale}
+              icon={benefitscards.icon}
+              title={benefitscards.title}
+              description={benefitscards.description}
+              image={benefitscards.image}
+              topImage={benefitscards.topImage}
+              bottomImage={benefitscards.bottomImage}
+            />
+          );
+        })}
       </motion.div>
     </section>
   );
 }
 
-const Card = ({ title, description, image, icon, scale }: BenefitsCards) => {
+const Card = ({
+  title,
+  description,
+  image,
+  icon,
+  scale,
+  topImage,
+  bottomImage,
+}: BenefitsCards) => {
   return (
     <motion.div
       className="h-[800px] lg:h-[600px] w-full bg-card mx-auto sticky top-[50px] lg:top-[160px] rounded-3xl drop-shadow-card flex flex-col lg:flex-row items-center "
       style={{ scale }}
     >
-      <div className="flex-1 h-full">
+      <div className="lg:flex-1 h-fit lg:h-full ">
         <div className="h-full w-full flex flex-col justify-start gap-4 px-6 py-8 lg:px-16 lg:py-16 ">
           <div className=" w-14 h-14 rounded-full relative">
             <Images image={icon} alt={"icon"} />
           </div>
-          <h3 className=" font-neueMontreal text-[3.125rem]">{title}</h3>
-          <p className="opacity-60 text-2xl leading-8">{description}</p>
+          <h3 className=" font-neueMontreal text-[1.75rem] lg:text-[3.125rem]">
+            {title}
+          </h3>
+          <p className="opacity-60 text-[1.25rem] lg:text-2xl leading-8">
+            {description}
+          </p>
         </div>
       </div>
-      <div className="h-full w-full flex-1 relative bg-blue-300 rounded-[1.25rem] px-16 ">
-        <Images image={image} alt={"image"} className="h-full w-full" />
+      <div className="relative h-full w-full flex-1 rounded-[1.25rem] lg:px-12 flex justify-center items-center">
+        {topImage && (
+          <div className="w-[30%] h-44  absolute top-0 lg:top-8  left-0 lg:-left-2 z-20">
+            <Images
+              image={topImage}
+              alt={"image"}
+              className="h-full w-full object-contain object-top"
+            />
+          </div>
+        )}
+        {bottomImage && (
+          <div className="w-[40%] h-60 lg:h-80 absolute bottom-12 lg:bottom-8 right-2 lg:right-9 z-20 test">
+            <div className="relative h-full w-full">
+              <Images
+                image={bottomImage}
+                alt={"image"}
+                className="w-full object-contain object-bottom"
+              />
+            </div>
+          </div>
+        )}
+        {image?.map((img) => {
+          if (img._type === "largeImage") {
+            return <LargeImage image={img} />;
+          } else if (img?._type === "video") {
+            return <Video video={img} />;
+          } else if (img._type === "smallImage") {
+            return <SmallImage image={img} />;
+          }
+        })}
       </div>
     </motion.div>
   );
 };
+
+const LargeImage = ({ image }: any) => (
+  <div className="w-full h-full lg:h-4/5 relative overflow-clip -mt-40 lg:mt-0">
+    <Images
+      image={image}
+      alt={"image"}
+      className="h-full w-full  object-contain"
+    />
+  </div>
+);
+const Video = ({ video }: any) => (
+  <div className=" w-[300px] h-[350px] lg:h-[450px] relative overflow-clip aspect-[3600 / 2400] bg-cyan-300">
+    {/* <Images image={image} alt={"image"} className="h-full w-full" /> */}
+    video
+  </div>
+);
+const SmallImage = ({ image }: any) => (
+  <div className=" w-5/6 h-3/5 relative overflow-clip aspect-[3600 / 2400]">
+    <Images
+      image={image}
+      alt={"image"}
+      className="h-full w-full rounded-[1.25rem] object-cover lg:object-contain"
+    />
+  </div>
+);

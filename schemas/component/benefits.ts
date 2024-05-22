@@ -5,17 +5,13 @@ export default defineField({
   type: "object",
   title: "Benefits Component",
   preview: {
-    select: {
-      title: "Benefits",
-    },
-    prepare({ title }) {
+    prepare() {
       return {
-        title,
+        title: "Benefits Card",
         subtitle: "Benefits Component",
       };
     },
   },
-
   fields: [
     {
       name: "benefitscards",
@@ -41,9 +37,37 @@ export default defineField({
               title: "Card Description",
             },
             {
-              name: "image",
+              name: "topImage",
               type: "image",
-              title: "image",
+              title: "Fixed Top image",
+            },
+            {
+              name: "image",
+              type: "array",
+              validation: (Rule) => Rule.max(1),
+              title: "Image",
+              of: [
+                {
+                  name: "largeImage",
+                  type: "image",
+                  title: "Large image",
+                },
+                {
+                  name: "video",
+                  type: "mux.video",
+                  title: "video",
+                },
+                {
+                  name: "smallImage",
+                  type: "image",
+                  title: "Small image",
+                },
+              ],
+            },
+            {
+              name: "bottomImage",
+              type: "image",
+              title: "Fixed Bottom image",
             },
           ],
         },

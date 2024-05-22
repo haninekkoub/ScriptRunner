@@ -67,17 +67,28 @@ interface StatsComponent {
   pils: Pill[];
   highlights: Highlight[];
 }
-interface BenefitsCards {
-  icon: "image";
-  title: "string";
-  description: "string";
-  scale?: MotionValue;
-  image: "image";
-}
 interface Benifits {
   benefitscards: BenefitsCards[];
 }
-
+interface BenefitsCards {
+  scale?: MotionValue;
+  icon: "image";
+  title: string;
+  description: string;
+  topImage: "image";
+  image: Array<
+    | { largeImage: "image"; _type: string }
+    | {
+        video: {
+          playbackId: string;
+          assetId: string;
+        };
+        _type: string;
+      }
+    | { smallImage: "image"; _type: string }
+  >;
+  bottomImage: "image";
+}
 interface Page {
   name: string;
   slug: {

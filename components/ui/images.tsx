@@ -9,17 +9,22 @@ interface Props {
   className?: string;
 }
 export default function Images({ image, alt, className }: Props) {
-  const getUrl = (currentimage: "image") =>
-    currentimage ? urlFor(currentimage).url() : DefaultImage;
+  const getUrl = (currentImage: "image") => {
+    if (currentImage) {
+      return urlFor(currentImage).url();
+    } else {
+      return DefaultImage;
+    }
+  };
   const imageUrl = typeof image === "string" ? image : getUrl(image);
   return (
     <Image
       src={imageUrl}
-      fill={true}
       alt={alt}
+      layout="fill"
       priority={true}
       sizes="(max-width: 768px) 60%, 70%"
-      className={cn("object-cover object-center", className)}
+      className={cn("", className)}
     />
   );
 }
