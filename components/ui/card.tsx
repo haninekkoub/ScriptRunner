@@ -4,7 +4,7 @@ import Images from "./images";
 
 export default function Card({ id, image, title, info }: CardType) {
   return (
-    <div className="flex flex-col justify-between h-[550px] lg:h-[592px] w-[calc(100vw-1rem)] lg:w-[432px] bg-[#F5F5F5] rounded-3xl p-4 lg:p-8">
+    <div className="flex flex-col justify-between h-[550px] md:h-[592px] w-[calc(100vw-1rem)]  max-w-[432px] bg-[#F5F5F5] rounded-3xl p-4 md:p-8">
       <div className="flex flex-col gap-6">
         <span className="bg-white w-12 h-12 flex justify-center items-center rounded-full">
           {id}

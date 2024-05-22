@@ -1,3 +1,4 @@
+"use client";
 import { HeroType } from "@/lib/types";
 import Video from "./ui/video";
 
@@ -14,7 +15,7 @@ export default function Hero({ heroText, video, descritpion }: HeroType) {
         {descritpion}
       </h3>
       <div className="absolute left-0 top-0 h-full w-full object-cover bg-gray-600 videoGradien -z-10"></div>
-      {/* <Video playbackId={video.playbackId} /> */}
+      <Video playbackId={video.playbackId} />
     </section>
   );
 }

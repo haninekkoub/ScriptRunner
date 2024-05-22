@@ -4,8 +4,9 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Card from "./ui/card";
 import { CardList } from "@/lib/types";
+import Video from "./ui/video";
 
-export default function HowItWork({ content }: CardList) {
+export default function HowItWork({ content, video }: CardList) {
   const [scrollRange, setScrollRange] = useState<number>(0);
   const [screenWidth, setScreenWidth] = useState<number>(0);
   const targetRef = useRef<HTMLDivElement | null>(null);
@@ -49,7 +50,9 @@ export default function HowItWork({ content }: CardList) {
   return (
     <section>
       <div className="h-fit flex flex-col gap-8 lg:hidden px-2">
-        <div className="bg-cyan-500 rounded-2xl w-full h-60"></div>
+        <div className="rounded-2xl w-full h-60  relative overflow-hidden">
+          <Video playbackId={video?.playbackId} />
+        </div>
         <div className="flex flex-col gap-4 ">
           <p className="uppercase text-primary">OFFERINGS</p>
           <h2 className="font-neueMontreal text-2xl font-medium">
@@ -65,7 +68,7 @@ export default function HowItWork({ content }: CardList) {
         ref={targetRef}
         style={{ height: scrollRange }}
       >
-        <div className="sticky top-0 h-screen  px-2 lg:px-0 lg:mx-auto overflow-hidden ">
+        <div className="sticky top-0  h-screen  px-2 lg:px-0 lg:mx-auto overflow-hidden ">
           <motion.div
             ref={scrollRef}
             style={{ x }}
@@ -74,7 +77,9 @@ export default function HowItWork({ content }: CardList) {
             <div className=" flex items-center lg:items-start lg:gap-10 h-[46vh] lg:h-fit lg:px-12 lg:py-16">
               <div className="h-[672px] flex items-center">
                 <div className="gap-12  hidden lg:flex">
-                  <div className="bg-cyan-500 rounded-2xl min-w-[min(46vw,670px)]"></div>
+                  <div className="rounded-2xl min-w-[min(46vw,670px)] relative overflow-hidden">
+                    <Video playbackId={video?.playbackId} />
+                  </div>
                   <div className="flex flex-col gap-6 py-8 w-[min(46vw,670px)]">
                     <p className="uppercase text-primary">OFFERINGS</p>
                     <h2 className=" font-neueMontreal text-[3.125rem] font-medium leading-[1.1]">

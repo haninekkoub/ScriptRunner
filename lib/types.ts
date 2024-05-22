@@ -54,6 +54,10 @@ interface CardType {
 }
 
 interface CardList {
+  video: {
+    playbackId: string;
+    assetId: string;
+  };
   content: CardType[];
 }
 interface Pill {

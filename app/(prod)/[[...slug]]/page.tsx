@@ -9,19 +9,38 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     ...,
     content[]{
       ...,
-       _type == "heroComponent" => {
-        ...,  
-        "video": video.asset-> {
-            playbackId,
-            assetId,
-          },         
+        _type == "heroComponent" => {
+            ...,  
+            "video": video.asset-> {
+                playbackId,
+                assetId,
+            },         
         },
         _type == "faqList" => {
-          "faq": content[]->{
-            ...,
-          }
+            "faq": content[]->{
+              ...,
+            } 
         },
-      },   
+        _type == "benefits" => {
+            benefitscards[] {
+            ...,
+            image[] {
+              ...,
+              "video": asset-> {
+                playbackId,
+                assetId,  
+              },
+            },
+          },
+        },
+        _type == "cardList" => {
+            ...,  
+            "video": video.asset-> {
+                playbackId,
+                assetId,
+            },         
+        }, 
+    },  
   }`;
   const page = await client.fetch(
     query,
@@ -39,7 +58,6 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       </div>
     );
   }
-
   return (
     <div>
       {page.content.map(({ _type, ...object }: any) => {

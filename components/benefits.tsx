@@ -4,9 +4,9 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Images from "./ui/images";
 import { BenefitsCards, Benifits } from "@/lib/types";
+import Video from "./ui/video";
 
 export default function Benefits({ benefitscards }: Benifits) {
-  console.log(benefitscards);
   const reference = useRef(null);
   const { scrollYProgress } = useScroll({ target: reference });
   const cardsAnimation = [
@@ -39,19 +39,10 @@ export default function Benefits({ benefitscards }: Benifits) {
           Our software streamlines your existing delivery process
         </h2>
       </div>
-      <motion.div className="relative w-full flex flex-col gap-16 [&>*:nth-child(2)]:top-[100px] [&>*:nth-child(2)]:lg:top-[200px]">
-        {benefitscards?.map(({ ...benefitscards }, index: number) => {
+      <motion.div className="relative w-full flex flex-col gap-16 [&>*:nth-child(2)]:top-[50px] [&>*:nth-child(2)]:lg:top-[200px]">
+        {benefitscards?.map((card, index) => {
           return (
-            <Card
-              key={index}
-              scale={cardsAnimation[index].scale}
-              icon={benefitscards.icon}
-              title={benefitscards.title}
-              description={benefitscards.description}
-              image={benefitscards.image}
-              topImage={benefitscards.topImage}
-              bottomImage={benefitscards.bottomImage}
-            />
+            <Card key={index} scale={cardsAnimation[index].scale} {...card} />
           );
         })}
       </motion.div>
@@ -70,7 +61,7 @@ const Card = ({
 }: BenefitsCards) => {
   return (
     <motion.div
-      className="h-[800px] lg:h-[600px] w-full bg-card mx-auto sticky top-[50px] lg:top-[160px] rounded-3xl drop-shadow-card flex flex-col lg:flex-row items-center "
+      className="h-[800px] lg:h-[600px] w-full bg-card mx-auto sticky top-0 lg:top-[160px] rounded-3xl drop-shadow-card flex flex-col lg:flex-row items-center "
       style={{ scale }}
     >
       <div className="lg:flex-1 h-fit lg:h-full ">
@@ -86,9 +77,9 @@ const Card = ({
           </p>
         </div>
       </div>
-      <div className="relative h-full w-full flex-1 rounded-[1.25rem] lg:px-12 flex justify-center items-center">
+      <div className="relative h-full w-full flex-1 rounded-[1.25rem] lg:px-12 flex justify-center items-center ">
         {topImage && (
-          <div className="w-[30%] h-44  absolute top-0 lg:top-8  left-0 lg:-left-2 z-20">
+          <div className="w-[30%] h-44  absolute top-8  left-2 lg:-left-2 z-20">
             <Images
               image={topImage}
               alt={"image"}
@@ -108,10 +99,11 @@ const Card = ({
           </div>
         )}
         {image?.map((img) => {
+          console.log("thisis", img._type, "and this is link", img.video);
           if (img._type === "largeImage") {
             return <LargeImage image={img} key={img._key} />;
-          } else if (img?._type === "video") {
-            return <Video video={img} key={img._key} />;
+          } else if (img._type === "video") {
+            return <Videos video={img.video} key={img._key} />;
           } else if (img._type === "smallImage") {
             return <SmallImage image={img} key={img._key} />;
           }
@@ -122,20 +114,21 @@ const Card = ({
 };
 
 const LargeImage = ({ image }: any) => (
-  <div className="w-full h-full lg:h-4/5 relative overflow-clip -mt-40 lg:mt-0">
+  <div className="w-full h-full lg:h-4/5 relative overflow-clip ">
     <Images
       image={image}
       alt={"image"}
-      className="h-full w-full  object-contain"
+      className="h-full w-full  object-contain object-top lg:object-center"
     />
   </div>
 );
-const Video = ({ video }: any) => (
-  <div className=" w-[300px] h-[350px] lg:h-[450px] relative overflow-clip aspect-[3600 / 2400] bg-cyan-300">
-    {/* <Images image={image} alt={"image"} className="h-full w-full" /> */}
-    video
-  </div>
-);
+const Videos = ({ video }: any) => {
+  return (
+    <div className=" w-[300px] h-[350px] lg:h-[450px] relative overflow-clip aspect-[3600 / 2400] ">
+      <Video playbackId={video.playbackId} />
+    </div>
+  );
+};
 const SmallImage = ({ image }: any) => (
   <div className=" w-5/6 h-3/5 relative overflow-clip aspect-[3600 / 2400]">
     <Images

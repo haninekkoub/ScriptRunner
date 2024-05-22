@@ -17,7 +17,7 @@ export default defineConfig({
   plugins: [
     structureTool({ structure }),
     visionTool(),
-    muxInput(),
+    muxInput({ mp4_support: "standard" }),
     singletonTools(),
   ],
   schema: { types: schemaTypes },

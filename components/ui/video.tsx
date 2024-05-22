@@ -13,7 +13,7 @@ export default function Video({
 
   return (
     <MuxPlayer
-      className="h-[100vh] w-[100vw] absolute  inset-0 object-cover -z-20"
+      className="h-full w-full absolute  inset-0 object-cover -z-20"
       muted
       autoPlay
       loop

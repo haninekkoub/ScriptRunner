@@ -14,6 +14,11 @@ export default defineField({
   },
   fields: [
     {
+      title: "Card video",
+      name: "video",
+      type: "mux.video",
+    },
+    {
       name: "content",
       title: "Card List",
       type: "array",

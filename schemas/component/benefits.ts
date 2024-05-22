@@ -19,6 +19,8 @@ export default defineField({
       type: "array",
       of: [
         {
+          name: "card",
+          title: "card",
           type: "object",
           fields: [
             {
