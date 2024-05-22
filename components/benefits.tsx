@@ -3,7 +3,7 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Images from "./ui/images";
-import { BenefitsCards, Benifits } from "@/lib/types";
+import { BenefitsCards, Benifits, VideoType } from "@/lib/types";
 import Video from "./ui/video";
 
 export default function Benefits({ benefitscards }: Benifits) {
@@ -102,7 +102,8 @@ const Card = ({
           if (img._type === "largeImage") {
             return <LargeImage image={img} key={img._key} />;
           } else if (img._type === "video") {
-            return <Videos video={img.video} key={img._key} />;
+            const videoImg = img as { video: VideoType };
+            return <Videos video={videoImg.video} key={img._key} />;
           } else if (img._type === "smallImage") {
             return <SmallImage image={img} key={img._key} />;
           }

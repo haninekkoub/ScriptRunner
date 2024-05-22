@@ -23,13 +23,13 @@ interface HeaderType {
   button: string;
   link: string;
 }
-interface Video {
+interface VideoType {
   playbackId: string;
   assetId: string;
 }
 interface HeroType {
   heroText: string;
-  video: Video;
+  video: VideoType;
   descritpion: string;
 }
 interface CallToActionType {
@@ -54,7 +54,7 @@ interface CardType {
 }
 
 interface CardList {
-  video: Video;
+  video: VideoType;
   content: CardType[];
 }
 interface Pill {
@@ -80,7 +80,7 @@ interface BenefitsCards {
   image: Array<
     | { largeImage: "image"; _type: string; _key: string }
     | {
-        video: Video;
+        video: VideoType;
         _type: string;
         _key: string;
       }
@@ -111,6 +111,7 @@ export type {
   CardList,
   Button,
   Pill,
+  VideoType,
   Highlight,
   BenefitsCards,
   Benifits,
