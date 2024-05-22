@@ -23,13 +23,13 @@ interface HeaderType {
   button: string;
   link: string;
 }
-
+interface Video {
+  playbackId: string;
+  assetId: string;
+}
 interface HeroType {
   heroText: string;
-  video: {
-    playbackId: string;
-    assetId: string;
-  };
+  video: Video;
   descritpion: string;
 }
 interface CallToActionType {
@@ -54,10 +54,7 @@ interface CardType {
 }
 
 interface CardList {
-  video: {
-    playbackId: string;
-    assetId: string;
-  };
+  video: Video;
   content: CardType[];
 }
 interface Pill {
@@ -83,10 +80,7 @@ interface BenefitsCards {
   image: Array<
     | { largeImage: "image"; _type: string; _key: string }
     | {
-        video: {
-          playbackId: string;
-          assetId: string;
-        };
+        video: Video;
         _type: string;
         _key: string;
       }

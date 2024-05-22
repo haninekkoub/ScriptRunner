@@ -99,7 +99,6 @@ const Card = ({
           </div>
         )}
         {image?.map((img) => {
-          console.log("thisis", img._type, "and this is link", img.video);
           if (img._type === "largeImage") {
             return <LargeImage image={img} key={img._key} />;
           } else if (img._type === "video") {
