@@ -109,11 +109,11 @@ const Card = ({
         )}
         {image?.map((img) => {
           if (img._type === "largeImage") {
-            return <LargeImage image={img} />;
+            return <LargeImage image={img} key={img._key} />;
           } else if (img?._type === "video") {
-            return <Video video={img} />;
+            return <Video video={img} key={img._key} />;
           } else if (img._type === "smallImage") {
-            return <SmallImage image={img} />;
+            return <SmallImage image={img} key={img._key} />;
           }
         })}
       </div>

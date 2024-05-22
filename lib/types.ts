@@ -77,15 +77,16 @@ interface BenefitsCards {
   description: string;
   topImage: "image";
   image: Array<
-    | { largeImage: "image"; _type: string }
+    | { largeImage: "image"; _type: string; _key: string }
     | {
         video: {
           playbackId: string;
           assetId: string;
         };
         _type: string;
+        _key: string;
       }
-    | { smallImage: "image"; _type: string }
+    | { smallImage: "image"; _type: string; _key: string }
   >;
   bottomImage: "image";
 }
