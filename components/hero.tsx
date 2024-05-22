@@ -14,7 +14,7 @@ export default function Hero({ heroText, video, descritpion }: HeroType) {
       <h3 className="text-xl lg:text-2xl w-[87vw] lg:w-[900px]">
         {descritpion}
       </h3>
-      <div className="absolute left-0 top-0 h-full w-full object-cover bg-gray-600 videoGradien -z-10"></div>
+      <div className="absolute left-0 top-0 h-full w-full object-cover videoGradien -z-10"></div>
       <Video playbackId={video.playbackId} />
     </section>
   );
