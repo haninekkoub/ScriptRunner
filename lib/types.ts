@@ -1,77 +1,77 @@
 import { MotionValue } from "framer-motion";
 
-interface CtaType {
+export interface CtaType {
   cta: boolean;
   ctaTitle: string;
   ctabutton: Button;
 }
 
-interface Button {
+export interface Button {
   _key: string;
   content: string;
   link: string;
 }
 
-interface FooterType {
+export interface FooterType {
   ctaComponent: CtaType;
   footerText: string;
   links: Button[];
   leftLinks: Button[];
 }
 
-interface HeaderType {
+export interface HeaderType {
   button: string;
   link: string;
 }
-interface VideoType {
+export interface VideoType {
   playbackId: string;
   assetId: string;
 }
-interface HeroType {
+export interface HeroType {
   heroText: string;
   video: VideoType;
   descritpion: string;
 }
-interface CallToActionType {
+export interface CallToActionType {
   image: "image";
   title: string;
   description: string;
 }
-interface FaqType {
+export interface FaqType {
   question: string;
   info: string;
 }
 
-interface FaqList {
+export interface FaqList {
   faq: FaqType[];
 }
 
-interface CardType {
+export interface CardType {
   id: number;
   image: "image";
   title: string;
   info: string;
 }
 
-interface CardList {
+export interface CardList {
   video: VideoType;
   content: CardType[];
 }
-interface Pill {
+export interface Pill {
   leftPils: string;
   whitePils: string;
 }
-interface Highlight {
+export interface Highlight {
   highlight: string;
 }
-interface StatsComponent {
+export interface StatsComponent {
   pils: Pill[];
   highlights: Highlight[];
 }
-interface Benifits {
+export interface Benifits {
   benefitscards: BenefitsCards[];
 }
-interface BenefitsCards {
+export interface BenefitsCards {
   scale?: MotionValue;
   icon: "image";
   title: string;
@@ -88,7 +88,7 @@ interface BenefitsCards {
   >;
   bottomImage: "image";
 }
-interface Page {
+export interface Page {
   name: string;
   slug: {
     _type: "slug";
@@ -98,23 +98,3 @@ interface Page {
     CallToActionType | FaqList | HeroType | StatsComponent | CardList | Benifits
   >;
 }
-
-export type {
-  HeaderType,
-  CtaType,
-  FooterType,
-  HeroType,
-  CallToActionType,
-  FaqType,
-  FaqList,
-  CardType,
-  CardList,
-  Button,
-  Pill,
-  VideoType,
-  Highlight,
-  BenefitsCards,
-  Benifits,
-  StatsComponent,
-  Page,
-};

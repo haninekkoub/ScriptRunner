@@ -79,7 +79,7 @@ const Card = ({
       </div>
       <div className="relative h-full w-full flex-1 rounded-[1.25rem] lg:px-12 flex justify-center items-center ">
         {topImage && (
-          <div className="w-[30%] h-44  absolute top-8  left-2 lg:-left-2 z-20">
+          <div className="w-[30%] h-44  absolute top-8  left-2 lg:left-14 z-20">
             <Images
               image={topImage}
               alt={"image"}
@@ -88,7 +88,7 @@ const Card = ({
           </div>
         )}
         {bottomImage && (
-          <div className="w-[40%] h-60 lg:h-80 absolute bottom-12 lg:bottom-8 right-2 lg:right-9 z-20 test">
+          <div className="w-[40%] h-60 lg:h-80 absolute bottom-12 lg:bottom-8 right-2 lg:right-9 z-20">
             <div className="relative h-full w-full">
               <Images
                 image={bottomImage}
@@ -124,7 +124,7 @@ const LargeImage = ({ image }: any) => (
 );
 const Videos = ({ video }: any) => {
   return (
-    <div className=" w-[300px] h-[350px] lg:h-[450px] relative overflow-clip aspect-[3600 / 2400] ">
+    <div className=" w-[270px] h-[400px] lg:h-[450px] relative overflow-clip rounded-[1.25rem] mx-auto">
       <Video playbackId={video.playbackId} />
     </div>
   );

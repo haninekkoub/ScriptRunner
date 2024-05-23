@@ -13,7 +13,7 @@ export default async function Layout({
   }`;
   const data = await client.fetch(query, {}, { cache: "no-store" });
   return (
-    <div className="relative bg-white flex flex-col justify-between  min-h-screen mx-auto font-inter ">
+    <div className="relative flex flex-col justify-between  min-h-screen mx-auto font-inter ">
       <Header {...data.header} />
       <main className="relative z-10 bg-white ">{children}</main>
       <Footer {...data.footer} />

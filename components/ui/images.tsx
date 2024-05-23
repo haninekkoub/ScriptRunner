@@ -21,7 +21,7 @@ export default function Images({ image, alt, className }: Props) {
     <Image
       src={imageUrl}
       alt={alt}
-      layout="fill"
+      fill
       priority={true}
       sizes="(max-width: 768px) 60%, 70%"
       className={cn("", className)}
